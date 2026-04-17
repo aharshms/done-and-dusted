@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="projects-bar">
+        <div class="projects-list" id="projectsList"></div>
+        <button class="add-project-btn" id="addProjectBtn" title="Add new project">+</button>
+        <button class="history-toggle-btn" id="historyToggleBtn" title="Work History">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <main class="main">
+        <div class="todo-container" id="todoContainer">
+          <div class="empty-state" id="emptyState">
+            <p>Select a project or create one to get started</p>
+          </div>
+
+          <div class="todo-list-wrapper" id="todoListWrapper" style="display: none;">
+            <div class="add-todo-row">
+              <input type="text" id="newTodoInput" placeholder="Add a new task..." class="todo-input">
+              <button id="addTodoBtn" class="add-todo-btn">Add</button>
+            </div>
+            <ul class="todo-list" id="todoList"></ul>
+          </div>
+        </div>
+      </main>
+
+      <aside class="gif-panel" id="gifPanel">
+        <div class="gif-container">
+          <img id="randomGif" src="" alt="Random GIF" />
+        </div>
+      </aside>
+
+      <aside class="history-panel" id="historyPanel">
+        <div class="history-header">
+          <h3>Work History</h3>
+        </div>
+        <div class="calendar" id="calendar"></div>
+        <div class="history-report" id="historyReport">
+          <p class="history-hint">Select a date to view work history</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <canvas id="graffitiCanvas"></canvas>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <h3 id="modalTitle">New Project</h3>
+      <input type="text" id="modalInput" placeholder="Project name" class="modal-input">
+      <div class="modal-actions">
+        <button class="modal-btn cancel" id="modalCancel">Cancel</button>
+        <button class="modal-btn confirm" id="modalConfirm">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-dialog">
+      <p id="confirmMessage">Are you sure?</p>
+      <div class="modal-actions">
+        <button class="modal-btn cancel" id="confirmCancel">Cancel</button>
+        <button class="modal-btn confirm danger" id="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

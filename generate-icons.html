@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Icons</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; text-align: center; }
+    canvas { border: 1px solid #ddd; margin: 10px; }
+    button { margin-top: 20px; padding: 12px 24px; font-size: 16px; cursor: pointer; }
+    .instructions { color: #666; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Done & Dusted Icons</h1>
+  <p>Right-click each icon and "Save image as..." to the /icons folder</p>
+
+  <div>
+    <canvas id="icon16" width="16" height="16"></canvas>
+    <span>icon16.png</span>
+  </div>
+  <div>
+    <canvas id="icon48" width="48" height="48"></canvas>
+    <span>icon48.png</span>
+  </div>
+  <div>
+    <canvas id="icon128" width="128" height="128"></canvas>
+    <span>icon128.png</span>
+  </div>
+
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+      const scale = size / 128;
+
+      // Background
+      ctx.fillStyle = '#333';
+      ctx.beginPath();
+      ctx.roundRect(0, 0, size, size, size * 0.15);
+      ctx.fill();
+
+      // Checkmark
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = size * 0.12;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(size * 0.25, size * 0.5);
+      ctx.lineTo(size * 0.45, size * 0.7);
+      ctx.lineTo(size * 0.75, size * 0.3);
+      ctx.stroke();
+    }
+
+    drawIcon(document.getElementById('icon16'));
+    drawIcon(document.getElementById('icon48'));
+    drawIcon(document.getElementById('icon128'));
+  </script>
+</body>
+</html>
